@@ -360,8 +360,10 @@ try {
     });
 
     console.log("Adding private key(s) to agent");
+    console.log("privateKey: " + privateKey);
 
     privateKey.split(/(?=-----BEGIN)/).forEach(function(key) {
+        console.log("key: " + key);
         child_process.execFileSync(sshAddCmd, ['-'], { input: key.trim() + "\n" });
     });
 
